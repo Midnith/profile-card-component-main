@@ -13,17 +13,23 @@ body {
   font-weight: 400;
   overflow: hidden;
 }
+body::before,
+body::after {
+    content: '';
+    position: absolute;
+    width: 1000px;
+    height: 1000px;
+    background-size: 100%;
+}
 body::before {
-content: url('images/bg-pattern-top.svg');
-position: fixed;
-top: -50vh;
-left: -25vw;
+    background-image: url('images/bg-pattern-top.svg');
+top: -100%;
+left: -50%;
 }
 body::after {
-  content: url('images/bg-pattern-bottom.svg');
-  position: absolute;
-  bottom: -50vh;
-  right: -25vw;
+  background-image: url('images/bg-pattern-bottom.svg');
+  bottom: -100%;
+  right: -50%;
 }
 main {
   align-items: center;
@@ -83,9 +89,20 @@ hr {
 }
 
 @media screen and (max-width: 500px) {
-  .card, body {
-      zoom: 0.8;
+  .card {
+      zoom: 0.7;
       overflow: hidden;
   }
-
+  body::before {
+      width: 500px;
+      height: 500px;
+      top: -50%;
+      left: -50%;
+  }
+  body::after {
+    width: 500px;
+    height: 500px;
+    bottom: -50%;
+    right: -50%;
+}
 }
